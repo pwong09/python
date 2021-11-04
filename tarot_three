@@ -4,23 +4,7 @@ tarot = { 1:	"The Magician", 2:	"The High Priestess", 3:	"The Empress", 4:	"The 
 
 spread = {}
 
-random_number_list = list(range(1,23))
-
-random_past = random.choice(random_number_list)
-random_number_list.remove(random_past)
-random_present = random.choice(random_number_list)
-random_number_list.remove(random_present)
-random_future = random.choice(random_number_list)
-random_number_list.remove(random_future)
-
-#print(random_past)
-#print(random_present)
-#print(random_future)  
-#print(random_number_list)
-
-spread["past"] = tarot.pop(random_past)
-spread["present"] = tarot.pop(random_present)
-spread["future"] = tarot.pop(random_future)
-
-for time, value in spread.items():
-  print("Your " + str(time) + " is the " + str(value) + " card.")
+for i in ["past", "present", "future"]:
+  card_left = list(tarot.keys())
+  spread[i] = tarot.pop(random.choice(card_left))
+  print("Your {} is the {} card.".format(i, spread.get(i)))
