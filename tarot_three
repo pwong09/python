@@ -5,6 +5,8 @@ tarot = { 1:	"The Magician", 2:	"The High Priestess", 3:	"The Empress", 4:	"The 
 spread = {}
 
 for i in ["past", "present", "future"]:
-  card_left = list(tarot.keys())
+  card_left = list(tarot)
   spread[i] = tarot.pop(random.choice(card_left))
-  print("Your {} is the {} card.".format(i, spread.get(i)))
+
+for time, value in spread.items():
+  print("Your " + str(time) + " is the " + str(value) + " card.")
